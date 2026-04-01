@@ -1,0 +1,39 @@
+{
+  "id": "dale_carnegie",
+  "slug": "dale-carnegie",
+  "name": "Dale Carnegie",
+  "description": "Klassiker der Kommunikation und Menschenführung.",
+  "sources": {
+    "books": [
+      "data/raw/dale_carnegie/dale_carnegie_wie_man_freunde_gewinnt.epub"
+    ],
+    "websites": [
+      "https://de.wikipedia.org/wiki/Dale_Carnegie"
+    ]
+  },
+  "pipeline": {
+    "languages": [
+      "de",
+      "en",
+      "de-DE",
+      "en-US"
+    ],
+    "stateFile": "data/raw/dale_carnegie/_state.json",
+    "youtubeRawDir": "data/raw/dale_carnegie/youtube"
+  },
+  "lens": {
+    "path": "personas/dale_carnegie.md",
+    "type": "markdown",
+    "lastFetchAt": null,
+    "lastBuildAt": null,
+    "knownVideos": null,
+    "failedVideos": null,
+    "processedVideosInLastRun": null,
+    "newVideosInLastRun": null,
+    "lastVideoId": null,
+    "lastVideoTitle": null
+  },
+  "website": {
+    "showNewBadgeDays": 2
+  }
+}

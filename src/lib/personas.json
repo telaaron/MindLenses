@@ -1,0 +1,16 @@
+{
+  "personas": [
+    {
+      "id": "dale-carnegie",
+      "name": "Dale Carnegie",
+      "tagline": "Classic frameworks for communication and influence",
+      "expertise": ["Communication", "Leadership", "Influence"],
+      "category": "Personal Growth",
+      "files": {
+        "core": "dale_carnegie.md"
+      },
+      "status": "ready",
+      "avatar": "DC"
+    }
+  ]
+}
