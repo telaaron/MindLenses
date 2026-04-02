@@ -1,0 +1,54 @@
+name: Lens Request
+description: Request a new persona Lens for public discussion and prioritization
+title: "[Request] "
+labels:
+  - request
+  - lens
+body:
+  - type: input
+    id: persona
+    attributes:
+      label: Persona name
+      description: Who should this Lens represent?
+      placeholder: Naval Ravikant
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why this persona?
+      description: Explain practical value and expected use cases.
+      placeholder: This persona would help with ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Public source suggestions
+      description: Add links to books, talks, podcasts, interviews, essays.
+      placeholder: |
+        - https://...
+        - https://...
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Preferred language of the Lens
+      options:
+        - English
+        - German
+        - Bilingual
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: compliance
+    attributes:
+      label: Compliance
+      options:
+        - label: I understand only consented, public-domain, or licensed source material can be distributed.
+          required: true
+        - label: I understand this issue is public and discussion is visible to everyone.
+          required: true

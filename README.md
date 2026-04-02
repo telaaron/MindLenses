@@ -1,64 +1,67 @@
-# MindLenses Website (SvelteKit)
+# MindLenses Public Repository
 
-Marketing site + intake flows for MindLenses.
+Public distribution and community layer for MindLenses.
 
-## Local development
+Website/app code is intentionally private.
 
-```sh
-pnpm install
-pnpm dev --host
+## Purpose
+
+This repo is not the hosting base for the website.
+
+It exists for three public jobs:
+
+1. Lens distribution via downloadable `.mindlens` files
+2. Open format documentation and usage guides
+3. Community-driven Lens requests via GitHub Issues
+
+## Repository Structure
+
+```text
+mindlenses/
+	lenses/          # downloadable .mindlens files
+	docs/            # format docs and usage guides
+	requests/        # issue workflow entry docs
+	.github/
+		ISSUE_TEMPLATE/
+	CONTRIBUTING.md
+	README.md
 ```
 
-## Build
+## Download Lenses
 
-```sh
-pnpm build
-pnpm preview
-```
+See `lenses/` for currently published files.
 
-## Intake and Email Environment
+## Documentation
 
-Set these variables for form operations:
+- `docs/what-is-a-mindlens.md`
+- `docs/how-to-use.md`
+- `docs/format-spec.md`
+- `docs/contributing.md`
 
-```env
-RESEND_API_KEY=...
-RESEND_FROM_EMAIL="MindLenses <noreply@mindlenses.app>"
-REQUEST_INTAKE_TO_EMAIL=aaron@must-seen.com
-ADMIN_DASHBOARD_TOKEN=choose-a-long-random-secret
-SUPABASE_URL=https://<project-ref>.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=...
-SUPABASE_INTAKE_TABLE=intake_requests
-```
+## Request a New Lens
 
-Behavior:
+Open a public issue:
 
-- `RESEND_API_KEY` + `RESEND_FROM_EMAIL` enable email sending.
-- Every intake sends one internal email and one confirmation email to requester.
-- If `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` are set, intake requests are stored in Supabase.
-- If Supabase env is missing, storage falls back to `website/.data/intake-requests.json`.
+- https://github.com/aaronpfuetzner/mindlenses/issues/new/choose
 
-## Supabase Setup
+This enables transparent discussion, community signaling, and prioritization.
 
-1. Open one of your existing Supabase projects.
-2. In SQL Editor, run: `supabase/intake_requests.sql`.
-3. Copy the project URL and service role key:
-	- Settings -> API -> Project URL
-	- Settings -> API -> service_role key
-4. Put both values into `.env`.
-5. Restart dev server.
+## Scope Boundary
 
-After restart, all new intake writes/reads/updates use Supabase automatically.
+What belongs in this public repo:
 
-## Internal Ops Queue
+- consented and publishable `.mindlens` files
+- format and usage documentation
+- public request discussions
 
-Routes:
+What does not belong here:
 
-- `/admin` (login)
-- `/ops/requests` (queue after login)
+- private website or app source code
+- intake/payment/business logic
+- raw sensitive source material
+- secrets, env files, infra credentials
+- non-consented lens content
 
-The queue supports:
+## Product Website
 
-- Unified view for Express and Corporate requests
-- Status updates (`new`, `approved`, `in_progress`, `waiting_customer`, `completed`, `rejected`)
-- Payment state tracking (`pending_after_approval`, `link_sent`, `paid`)
-- Manual payment link field and notes
+- https://mindlenses.app
